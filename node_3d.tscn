@@ -23,7 +23,7 @@ size = Vector3(9.377014, 4.600525, 0.40698242)
 
 [sub_resource type="Environment" id="Environment_noarx"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Game" type="Node3D"]
 
 [node name="Court" type="StaticBody3D" parent="."]
 
