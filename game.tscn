@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctowfidrgcunf"]
+[gd_scene load_steps=12 format=3 uid="uid://ctowfidrgcunf"]
 
 [ext_resource type="PackedScene" uid="uid://d4ndlbdn0oolw" path="res://assets/untexturedhooptest.fbx" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://co828rv7cqkj3" path="res://assets/untexturedbasketball.fbx" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://player_ball.tscn" id="1_feb5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
 albedo_color = Color(0.5647059, 0.5176471, 0.5058824, 1)
@@ -24,6 +25,10 @@ size = Vector3(9.377014, 4.600525, 0.40698242)
 [sub_resource type="Environment" id="Environment_noarx"]
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_fc0e3")
+
+[node name="PlayerBall" parent="." instance=ExtResource("1_feb5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308, 0)
 
 [node name="Court" type="StaticBody3D" parent="."]
 
@@ -63,9 +68,6 @@ shape = SubResource("BoxShape3D_jka67")
 [node name="TemporaryHoop" parent="." instance=ExtResource("1_e2o6t")]
 transform = Transform3D(-0.5999999, 2.3856679e-15, -9.059747e-08, 1.217955e-08, 0.59455335, -0.0806615, 8.977506e-08, -0.0806615, -0.59455335, 0.050215185, 3.1229365, 5.2384257)
 
-[node name="TemporaryBall" parent="." instance=ExtResource("2_feb5d")]
-transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -0.015272886, 0.8650542, 0.7246991)
-
 [node name="HoopWall" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="HoopWall"]
@@ -84,6 +86,7 @@ environment = SubResource("Environment_noarx")
 
 [node name="Camera" type="Camera3D" parent="Vision"]
 transform = Transform3D(-1, 3.8221286e-15, -8.742277e-08, -4.7225452e-08, 0.8415391, 0.5401963, 7.356969e-08, 0.5401963, -0.8415391, 0, 4.978879, -7.297317)
+fov = 60.0
 
 [node name="EnvironmentalLight" type="DirectionalLight3D" parent="Vision/Camera"]
 transform = Transform3D(-1, -6.641333e-08, -2.3169632e-07, -1.3282671e-07, -0.650297, 0.75968003, -2.0112432e-07, 0.75968003, 0.650297, 0, 3.5572798, -6.043975)
