@@ -106,14 +106,17 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Resume"
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Restart"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
