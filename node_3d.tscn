@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctowfidrgcunf"]
+[gd_scene load_steps=12 format=3 uid="uid://cm5f435w6c86a"]
 
-[ext_resource type="PackedScene" uid="uid://d4ndlbdn0oolw" path="res://assets/untexturedhooptest.fbx" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://co828rv7cqkj3" path="res://assets/untexturedbasketball.fbx" id="2_feb5d"]
-[ext_resource type="Script" uid="uid://6eqymn30xco3" path="res://pause.gd" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://d4ndlbdn0oolw" path="res://assets/untexturedhooptest.fbx" id="1_noarx"]
+[ext_resource type="Script" uid="uid://bym4sqdiotm5l" path="res://game_script.gd" id="1_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://co828rv7cqkj3" path="res://assets/untexturedbasketball.fbx" id="2_a0tk4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
 albedo_color = Color(0.5647059, 0.5176471, 0.5058824, 1)
@@ -24,24 +24,9 @@ size = Vector3(9.377014, 4.600525, 0.40698242)
 
 [sub_resource type="Environment" id="Environment_noarx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.91764706, 0.48235294, 0.2509804, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 20
-
 [node name="Game" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_r3fl7")
 
 [node name="Court" type="StaticBody3D" parent="."]
 
@@ -78,10 +63,10 @@ shape = SubResource("BoxShape3D_jka67")
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.21169853, 2.3606663, -7.162962)
 shape = SubResource("BoxShape3D_jka67")
 
-[node name="TemporaryHoop" parent="." instance=ExtResource("1_e2o6t")]
+[node name="TemporaryHoop" parent="." instance=ExtResource("1_noarx")]
 transform = Transform3D(-0.5999999, 2.3856679e-15, -9.059747e-08, 1.217955e-08, 0.59455335, -0.0806615, 8.977506e-08, -0.0806615, -0.59455335, 0.050215185, 3.1229365, 5.2384257)
 
-[node name="TemporaryBall" parent="." instance=ExtResource("2_feb5d")]
+[node name="TemporaryBall" parent="." instance=ExtResource("2_a0tk4")]
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -0.015272886, 0.8650542, 0.7246991)
 
 [node name="HoopWall" type="StaticBody3D" parent="."]
@@ -107,63 +92,3 @@ transform = Transform3D(-1, 3.8221286e-15, -8.742277e-08, -4.7225452e-08, 0.8415
 transform = Transform3D(-1, -6.641333e-08, -2.3169632e-07, -1.3282671e-07, -0.650297, 0.75968003, -2.0112432e-07, 0.75968003, 0.650297, 0, 3.5572798, -6.043975)
 light_color = Color(0.8819366, 0.8819366, 0.88193655, 1)
 light_energy = 1.5
-
-[node name="PauseMenu" type="CanvasLayer" parent="."]
-process_mode = 3
-script = ExtResource("3_feb5d")
-
-[node name="Panel2" type="Panel" parent="PauseMenu"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="PauseMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -173.0
-offset_right = 92.0
-offset_bottom = 173.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_feb5d")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
-custom_minimum_size = Vector2(100, 20)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = -128.5
-offset_right = 55.5
-offset_bottom = 128.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-
-[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Resume"
-
-[node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Options"
-
-[node name="Quit" type="Button" parent="PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Quit to Menu"
-
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Options" to="PauseMenu" method="_on_options_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
