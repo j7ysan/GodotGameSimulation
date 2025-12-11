@@ -1,40 +1,78 @@
-extends RigidBody3D 
+extends CharacterBody3D 
 
-var can_boost:bool = true
-var peak:float = 0.0
+const SPEED = 25.0
+const ACCELERATION = 20.0  # How fast you reach top speed
+const FRICTION = 5.0       # How fast you slow down (rolling resistance)
+const GRAVITY = 30.0       # Higher gravity feels snappier for sports balls
+const FLOOR_BOUNCE = 0.75   # Retain 75% height on floor hits (Automatic Bounce)
+const WALL_BOUNCE = 0.8     # Retain 80% speed on wall hits
+
+var can_boost: bool = true
+var peak: float = 0.0
 
 func _physics_process(delta):
+	if not is_on_floor():
+			velocity.y -= GRAVITY * delta
+	
 	peak = max(position.y, peak)
 	
-	movement(delta)
-	boost(delta)
-	shadow()
+	handle_movement(delta)
 	
-	if get_contact_count() > 0:
+	var vel_before_collision = velocity
+	var did_manual_dribble = handle_dribble_boost()
+	
+	move_and_slide()
+	
+	if is_on_wall():
+		var collision = get_last_slide_collision()
+		if collision:
+			var normal = collision.get_normal()
+			# Reflect the PRE-collision velocity off the wall
+			# We only modify X and Z (horizontal) for wall bounces usually
+			var reflected = vel_before_collision.bounce(normal)
+			velocity.x = reflected.x * WALL_BOUNCE
+			velocity.z = reflected.z * WALL_BOUNCE
+			
+	if is_on_floor(): 
 		can_boost = true
 		peak = 0.0
+		
+		if not did_manual_dribble and vel_before_collision.y < -2.0:
+			velocity.y = -vel_before_collision.y * FLOOR_BOUNCE
+		
+	shadow()
 
-func movement(delta):
-	var vec:Vector2 = Input.get_vector("right", "left", "down", "up")
-	linear_velocity.x = move_toward(linear_velocity.x, vec.normalized().x * 40, delta)
-	linear_velocity.z = move_toward(linear_velocity.z, vec.normalized().y * 40, delta)
+func handle_movement(delta):
+	var vec: Vector2 = Input.get_vector("right", "left", "down", "up")
+	var target_dir = Vector3(vec.x, 0, vec.y).normalized()
 
-func boost(delta):
+	if target_dir:		
+		velocity.x = move_toward(velocity.x, target_dir.x * SPEED, ACCELERATION * delta)
+		velocity.z = move_toward(velocity.z, target_dir.z * SPEED, ACCELERATION * delta)
+	
+	else:
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		velocity.z = move_toward(velocity.z, 0, FRICTION * delta)
+
+func handle_dribble_boost() -> bool:
 	if Input.is_action_just_pressed("boost") and can_boost:
-		if peak < 0.4:
-			linear_velocity.y = 6
-		else:
-			linear_velocity.y = -7
+		if peak < 1.0: # If we are low to the ground...
+			velocity.y = 15.0 # Pop it up (The Jump)
+		else: # If we are high in the air...
+			velocity.y = -20.0 # Slam it down (The Dribble)
 			
-			var vec:Vector2 = Input.get_vector("right", "left", "down", "up")
-			linear_velocity.x = linear_velocity.x * 0.5 + vec.normalized().x * 2
-			linear_velocity.z = linear_velocity.z * 0.5 + vec.normalized().y * 2
+			# Add a little forward dash when slamming
+			var vec: Vector2 = Input.get_vector("right", "left", "down", "up")
+			velocity.x = velocity.x * 0.5 + vec.normalized().x * 5.0
+			velocity.z = velocity.z * 0.5 + vec.normalized().y * 5.0
 			
 			can_boost = false
+		return true
+	return false
 
 func shadow():
-	$Shadow.position.x = position.x
-	$Shadow.position.z = position.z
-	var scale = max(1 - (position.y * 0.1), 0.25) * 0.4
-	$Shadow.scale.x = scale
-	$Shadow.scale.y = scale
+	if has_node("Shadow"):
+		$Shadow.global_position.x = global_position.x
+		$Shadow.global_position.z = global_position.z
+		var height_factor = max(1.0 - (position.y * 0.1), 0.25) * 0.4
+		$Shadow.scale = Vector3(height_factor, height_factor, height_factor)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=19 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
+[ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://d4ndlbdn0oolw" path="res://assets/untexturedhooptest.fbx" id="2_d8h4w"]
 [ext_resource type="PackedScene" uid="uid://co828rv7cqkj3" path="res://assets/untexturedbasketball.fbx" id="3_45a2j"]
 [ext_resource type="PackedScene" uid="uid://dbftdqdxhp52d" path="res://assets/HoopandBackboard2.fbx" id="4_xj7q3"]
@@ -19,12 +21,6 @@ material = SubResource("StandardMaterial3D_ipvt3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
 
-[sub_resource type="Environment" id="Environment_7dtuv"]
-background_mode = 1
-background_color = Color(0.57003874, 0.503771, 0.38442147, 1)
-ambient_light_color = Color(0.44101506, 0.23690334, 0.023140736, 1)
-fog_light_color = Color(0.4578799, 0.492705, 0.5468817, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_if7jb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok4ew"]
@@ -42,7 +38,20 @@ albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lau0d"]
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
 
+[sub_resource type="Environment" id="Environment_7dtuv"]
+background_mode = 1
+background_color = Color(0.57003874, 0.503771, 0.38442147, 1)
+ambient_light_color = Color(0.44101506, 0.23690334, 0.023140736, 1)
+fog_light_color = Color(0.4578799, 0.492705, 0.5468817, 1)
+
 [node name="Game" type="Node3D"]
+script = ExtResource("1_u5sy4")
+
+[node name="PlayerBall" parent="." instance=ExtResource("1_p57ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43, 0)
+
+[node name="Hoop" parent="." instance=ExtResource("4_xj7q3")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.050988436, 5.8503532, 4.3252945)
 
 [node name="Floor1" type="StaticBody3D" parent="."]
 
@@ -54,32 +63,6 @@ mesh = SubResource("PlaneMesh_4xowi")
 [node name="BarrierFloor1" type="CollisionShape3D" parent="Floor1"]
 transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 0, -6.981947, 0)
 shape = SubResource("BoxShape3D_a202f")
-
-[node name="TemporaryHoop" parent="." instance=ExtResource("2_d8h4w")]
-transform = Transform3D(-0.5999999, 2.3856679e-15, -9.059747e-08, 1.217955e-08, 0.59455335, -0.0806615, 8.977506e-08, -0.0806615, -0.59455335, -3.292958, 2.5689085, 5.2384257)
-
-[node name="TemporaryBall" parent="." instance=ExtResource("3_45a2j")]
-transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -3.3584468, 0.31102616, 0.7246991)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7dtuv")
-
-[node name="Vision" type="Marker3D" parent="."]
-
-[node name="Camera" type="Camera3D" parent="Vision"]
-transform = Transform3D(-0.99996287, 0.00044176454, -0.008610582, -4.4793595e-09, 0.9986865, 0.051237967, 0.008621908, 0.051236063, -0.99864936, 0.044947803, 2.820468, -7.824288)
-
-[node name="EnvironmentalLight" type="DirectionalLight3D" parent="Vision/Camera"]
-transform = Transform3D(-0.9999585, -0.0048646247, 0.007712049, 0.007975892, -0.05677645, 0.9983551, -0.0044187624, 0.99837506, 0.05681289, 0.04222316, 8.560405, -4.076162)
-light_color = Color(0.96729976, 0.96862084, 0.8238227, 1)
-light_energy = 1.75
-shadow_enabled = true
-
-[node name="Hoop" parent="." instance=ExtResource("4_xj7q3")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.050988436, 5.8503532, 4.3252945)
-
-[node name="Ball" parent="." instance=ExtResource("5_wgli7")]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0.046519756, 0.39103293, -4.1609235)
 
 [node name="Wall1" type="StaticBody3D" parent="."]
 transform = Transform3D(-6, 9.0597484e-07, -3.9601416e-14, 0, -2.6226832e-07, -6, -9.0597484e-07, -6, 2.6226832e-07, 0, 6.0317497, 5.266287)
@@ -121,3 +104,29 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lau0d")
 
 [node name="BarrierWall4" type="CollisionShape3D" parent="Wall4"]
 shape = SubResource("BoxShape3D_ohnwu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7dtuv")
+
+[node name="Vision" type="Marker3D" parent="."]
+
+[node name="Camera" type="Camera3D" parent="Vision"]
+transform = Transform3D(-0.99996287, 0.00044176454, -0.008610582, -4.4793595e-09, 0.9986865, 0.051237967, 0.008621908, 0.051236063, -0.99864936, 0.044947803, 2.820468, -7.824288)
+
+[node name="EnvironmentalLight" type="DirectionalLight3D" parent="Vision/Camera"]
+transform = Transform3D(-0.9999585, -0.0048646247, 0.007712049, 0.007975892, -0.05677645, 0.9983551, -0.0044187624, 0.99837506, 0.05681289, 0.04222316, 8.560405, -4.076162)
+light_color = Color(0.96729976, 0.96862084, 0.8238227, 1)
+light_energy = 1.75
+shadow_enabled = true
+
+[node name="TemporaryBall" parent="." instance=ExtResource("3_45a2j")]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -3.3584468, 0.31102616, 0.7246991)
+visible = false
+
+[node name="TemporaryHoop" parent="." instance=ExtResource("2_d8h4w")]
+transform = Transform3D(-0.5999999, 2.3856679e-15, -9.059747e-08, 1.217955e-08, 0.59455335, -0.0806615, 8.977506e-08, -0.0806615, -0.59455335, -3.292958, 2.5689085, 5.2384257)
+visible = false
+
+[node name="Ball" parent="." instance=ExtResource("5_wgli7")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0.046519756, 0.39103293, -4.1609235)
+visible = false
