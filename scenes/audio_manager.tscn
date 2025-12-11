@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgaemgj2ojto5"]
+
+[ext_resource type="AudioStream" uid="uid://bayla1fn1tdh6" path="res://sound/background.mp3" id="1_jisk1"]
+
+[node name="AudioManager" type="Node"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jisk1")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
