@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo7s15gpecbit"]
+
+[ext_resource type="Script" uid="uid://de8m1ndi3mggd" path="res://gameplay/options_menu.gd" id="1_lbr8e"]
+[ext_resource type="Texture2D" uid="uid://bst0a7ph752ad" path="res://assets/menu_background.png" id="2_t1lix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gmlt"]
+texture = ExtResource("2_t1lix")
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_lbr8e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4gmlt")
+
+[node name="Options_Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Back" type="Button" parent="Options_Container"]
+layout_mode = 2
+text = "Back"
+
+[node name="Options_Tabs" type="TabBar" parent="Options_Container"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+tab_alignment = 1
+tab_count = 4
+tab_0/title = "Video"
+tab_0/tooltip = "Display Settings"
+tab_1/title = "Audio"
+tab_1/tooltip = "Sound Settings"
+tab_2/title = "Controls"
+tab_2/tooltip = "Control Settings"
+tab_3/title = "About"
+tab_3/tooltip = "Game Information"
+
+[node name="Start" type="Button" parent="Options_Container"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="Options_Container/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Options_Container/Start" to="." method="_on_start_pressed"]
