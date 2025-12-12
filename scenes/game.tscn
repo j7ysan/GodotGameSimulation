@@ -178,10 +178,10 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.07678419, 4.89296, 3.
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0.034334183, 0.019389153, -6.1360626)
 
 [node name="ball-holder" parent="." instance=ExtResource("10_vtaks")]
-transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, 4.255848, 1.4759588, 1.9105899)
+transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, 4.1974635, 1.4759588, 1.3240664)
 
 [node name="ball-holder2" parent="." instance=ExtResource("10_vtaks")]
-transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, -4.233123, 1.4759588, -3.2897139)
+transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, -4.2051563, 1.4759588, -2.6029477)
 
 [node name="rain-particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 18.96576, 0)
