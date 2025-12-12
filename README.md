@@ -33,6 +33,8 @@ Created to test animation in relation to game creation for the third assignment 
 			Similar to Path3D but used in a mesh format to give the proper feel of a court.
 		- ball-holder: 
 			To add more life to the environment we placed standard holders which have more basketballs in them. To give more purpose to your endless supply.
+		- fence/fence-post:
+			To add more to the boundary of the world, completing our custom 'landscape', and the aesthetic of the 'outside court' that we spoke of earlier in our README.
 		- floor/wall textures: 
 			Taken from Polyhaven under their CCO or Public Domain use license to give more life to the overall environment.
 
