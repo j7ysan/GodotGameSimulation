@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=23 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b86fajr3uryct" path="res://assets/Baseboard-Connection.fbx" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bbe2ysmajb1d0" path="res://scenes/medal.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://bcbr7j3t1l8yj" path="res://assets/court-floor.fbx" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://lr0lm7gimcsv" path="res://assets/ball-holder.fbx" id="10_vtaks"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -157,5 +158,11 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.07678419, 4.89296, 3.
 
 [node name="court-floor" parent="." instance=ExtResource("9_0tnpc")]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0.034334183, 0.019389153, -6.1360626)
+
+[node name="ball-holder" parent="." instance=ExtResource("10_vtaks")]
+transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, 4.255848, 1.4759588, 1.9105899)
+
+[node name="ball-holder2" parent="." instance=ExtResource("10_vtaks")]
+transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, -4.233123, 1.4759588, -3.2897139)
 
 [editable path="Hoop"]
