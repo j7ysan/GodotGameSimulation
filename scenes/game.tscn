@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=18 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dbftdqdxhp52d" path="res://assets/HoopandBackboard2.fbx" id="4_xj7q3"]
+[ext_resource type="PackedScene" uid="uid://7taefg7sbokx" path="res://scenes/pause_menu.tscn" id="5_iywne"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -124,5 +125,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lau0d")
 
 [node name="BarrierWall4" type="CollisionShape3D" parent="Wall4"]
 shape = SubResource("BoxShape3D_ohnwu")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_iywne")]
 
 [editable path="Hoop"]
