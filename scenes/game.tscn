@@ -57,7 +57,7 @@ environment = SubResource("Environment_7dtuv")
 [node name="Vision" type="Marker3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="Vision"]
-transform = Transform3D(-1, 2.990035e-08, -8.2150535e-08, 1.34302365e-08, 0.9810804, 0.1936008, 8.638501e-08, 0.1936008, -0.9810804, 0.1192233, 2.820468, -6.827643)
+transform = Transform3D(-1, 2.990035e-08, -8.2150535e-08, 1.34302365e-08, 0.9810804, 0.1936008, 8.638501e-08, 0.1936008, -0.9810804, 0.1192233, 2.820468, -3.8299403)
 
 [node name="EnvironmentalLight" type="DirectionalLight3D" parent="Vision/Camera"]
 transform = Transform3D(-0.9999585, -0.0048646247, 0.007712049, 0.007975892, -0.05677645, 0.9983551, -0.0044187624, 0.99837506, 0.05681289, 0.04222316, 8.560405, -4.076162)
