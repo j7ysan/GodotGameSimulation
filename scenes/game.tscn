@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=21 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dbftdqdxhp52d" path="res://assets/HoopandBackboard2.fbx" id="4_xj7q3"]
 [ext_resource type="PackedScene" uid="uid://7taefg7sbokx" path="res://scenes/pause_menu.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="6_u5sy4"]
-[ext_resource type="PackedScene" path="res://scenes/medal.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dke30o3ghavbf" path="res://scenes/hud.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b86fajr3uryct" path="res://assets/Baseboard-Connection.fbx" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bbe2ysmajb1d0" path="res://scenes/medal.tscn" id="8_gee14"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -56,7 +57,7 @@ environment = SubResource("Environment_7dtuv")
 [node name="Vision" type="Marker3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="Vision"]
-transform = Transform3D(-1, 2.990035e-08, -8.2150535e-08, 0, 0.9396926, 0.34202012, 8.742278e-08, 0.34202012, -0.9396926, 0.044947803, 2.820468, -7.824288)
+transform = Transform3D(-1, 2.990035e-08, -8.2150535e-08, 1.34302365e-08, 0.9810804, 0.1936008, 8.638501e-08, 0.1936008, -0.9810804, 0.1192233, 2.820468, -6.827643)
 
 [node name="EnvironmentalLight" type="DirectionalLight3D" parent="Vision/Camera"]
 transform = Transform3D(-0.9999585, -0.0048646247, 0.007712049, 0.007975892, -0.05677645, 0.9983551, -0.0044187624, 0.99837506, 0.05681289, 0.04222316, 8.560405, -4.076162)
@@ -65,11 +66,14 @@ light_energy = 1.75
 shadow_enabled = true
 
 [node name="PlayerBall" parent="." instance=ExtResource("1_p57ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0.4, -3.9455624)
 input_ray_pickable = false
 
 [node name="Hoop" parent="." instance=ExtResource("4_xj7q3")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.050988436, 5.8503532, 4.3252945)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.08008966, 4.8933764, 3.4129322)
+
+[node name="Baseboard" parent="Hoop" index="0"]
+transform = Transform3D(11.797268, 0, 0, 0, 1.4054323, 68.99031, 0, -10.585126, 9.160138, -1.0729928, -0.28233048, 0.5331271)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hoop/Baseboard" index="0"]
 
@@ -136,15 +140,18 @@ script = null
 [node name="Medals" type="Node3D" parent="."]
 
 [node name="Medal" parent="Medals" node_paths=PackedStringArray("hud") instance=ExtResource("8_gee14")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.176032, 0.83074856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05808401, 2.0661123, 0.3029971)
 hud = NodePath("../../HUD")
 
 [node name="Medal2" parent="Medals" node_paths=PackedStringArray("hud") instance=ExtResource("8_gee14")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.223711, 1.9434267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05808401, 3.4748397, 1.5700814)
 hud = NodePath("../../HUD")
 
 [node name="Medal3" parent="Medals" node_paths=PackedStringArray("hud") instance=ExtResource("8_gee14")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020853758, 5.544824, 3.3000908)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07893777, 4.566475, 2.6280503)
 hud = NodePath("../../HUD")
+
+[node name="Baseboard-Connection" parent="." instance=ExtResource("8_0tnpc")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.07678419, 4.89296, 3.516427)
 
 [editable path="Hoop"]
