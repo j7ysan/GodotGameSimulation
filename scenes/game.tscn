@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=30 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bbe2ysmajb1d0" path="res://scenes/medal.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://bcbr7j3t1l8yj" path="res://assets/court-floor.fbx" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://lr0lm7gimcsv" path="res://assets/ball-holder.fbx" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://brgd3tu4e5e2s" path="res://assets/fence2.fbx" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dywdb15kcr46t" path="res://assets/fence-pole.fbx" id="13_trtic"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -111,7 +113,7 @@ transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 0, -6.981947, 0)
 shape = SubResource("BoxShape3D_a202f")
 
 [node name="Wall1" type="StaticBody3D" parent="."]
-transform = Transform3D(-6, 9.0597484e-07, -3.9601416e-14, 0, -2.6226832e-07, -6, -9.0597484e-07, -6, 2.6226832e-07, 0, 6.0317497, 5.485223)
+transform = Transform3D(-6, 9.0597484e-07, -3.9601416e-14, 0, -2.6226832e-07, -6, -9.0597484e-07, -6, 2.6226832e-07, 0, 6.0317497, 5.847154)
 
 [node name="BoundaryWall1" type="MeshInstance3D" parent="Wall1"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -122,7 +124,7 @@ transform = Transform3D(1, -4.2632564e-14, 8.4703295e-22, 4.2632564e-14, 1, 0, -
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(-2.6226832e-07, 6, -2.6226832e-07, 0, -2.6226832e-07, -6, -6, -2.6226832e-07, 1.1464113e-14, -4.733071, 6.0317497, -0.086663246)
+transform = Transform3D(-3.059797e-07, 7, -3.059797e-07, 0, -3.059797e-07, -7, -7, -3.059797e-07, 1.33747985e-14, -5.0926075, 6.0317497, -0.2387104)
 
 [node name="BoundaryWall2" type="MeshInstance3D" parent="Wall2"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -132,7 +134,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_svkkd")
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall3" type="StaticBody3D" parent="."]
-transform = Transform3D(7.154928e-08, -6, 2.6226832e-07, 0, -2.6226832e-07, -6, 6, 7.154928e-08, -3.1275184e-15, 4.8011217, 6.0317497, -0.086663246)
+transform = Transform3D(-3.059797e-07, -7, 3.059797e-07, 0, -3.059797e-07, -7, 7, -3.059797e-07, 1.33747985e-14, 5.12345, 6.0317497, -0.086663246)
 
 [node name="BoundaryWall3" type="MeshInstance3D" parent="Wall3"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -142,7 +144,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vkwdv")
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(6, 1.0490733e-06, -4.5856453e-14, 0, -2.6226832e-07, -6, -1.0490733e-06, 6, -2.6226832e-07, -0.008300304, 6.0317497, -6.261274)
+transform = Transform3D(6, 1.0490733e-06, -4.5856453e-14, 0, -2.6226832e-07, -6, -1.0490733e-06, 6, -2.6226832e-07, -0.008300304, 6.0317497, -6.5222573)
 
 [node name="BoundaryWall4" type="MeshInstance3D" parent="Wall4"]
 material_override = SubResource("StandardMaterial3D_kvuet")
@@ -190,5 +192,65 @@ amount = 2000
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_dinhu")
 draw_pass_1 = SubResource("CapsuleMesh_kvuet")
+
+[node name="fence2" parent="." instance=ExtResource("12_kvuet")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8754272, 0.14861901, 5.902391)
+
+[node name="fence3" parent="." instance=ExtResource("12_kvuet")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.826211, 0.14861901, 5.902391)
+
+[node name="fence4" parent="." instance=ExtResource("12_kvuet")]
+transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, 6.2460575, 0.14861901, 5.624027)
+
+[node name="fence5" parent="." instance=ExtResource("12_kvuet")]
+transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, 6.2460575, 0.14861901, -6.333397)
+
+[node name="fence-pole" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, -6.285896)
+
+[node name="fence-pole2" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, -3.4037285)
+
+[node name="fence-pole3" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, -0.30157852)
+
+[node name="fence-pole4" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, 2.8014624)
+
+[node name="fence-pole5" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, 5.6381044)
+
+[node name="fence-pole6" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, -6.285896)
+
+[node name="fence-pole11" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.028808326, 0.15445137, -6.285896)
+
+[node name="fence-pole12" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 3.0763428, 0.15445137, -6.285896)
+
+[node name="fence-pole13" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -3.1153982, 0.15445137, -6.285896)
+
+[node name="fence-pole14" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.028808326, 0.15445137, 5.669655)
+
+[node name="fence-pole15" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 3.0763428, 0.15445137, 5.669655)
+
+[node name="fence-pole16" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -3.1153982, 0.15445137, 5.669655)
+
+[node name="fence-pole7" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, -3.4037285)
+
+[node name="fence-pole8" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, -0.30157852)
+
+[node name="fence-pole9" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, 2.8014624)
+
+[node name="fence-pole10" parent="." instance=ExtResource("13_trtic")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, 5.6381044)
 
 [editable path="Hoop"]
