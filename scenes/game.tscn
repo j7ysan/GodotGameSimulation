@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=28 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
@@ -14,8 +14,9 @@
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
-background_color = Color(0.57003874, 0.503771, 0.38442147, 1)
-ambient_light_color = Color(0.44101506, 0.23690334, 0.023140736, 1)
+background_color = Color(0.4970743, 0.4687512, 0.44428504, 1)
+ambient_light_color = Color(0.22853637, 0.21201256, 0.2162399, 1)
+fog_enabled = true
 fog_light_color = Color(0.4578799, 0.492705, 0.5468817, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lbhrr"]
@@ -57,6 +58,17 @@ albedo_texture = ExtResource("5_kvpfn")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lau0d"]
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
 albedo_texture = ExtResource("5_kvpfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvpfn"]
+albedo_color = Color(0.7352687, 0.8838493, 0.95151335, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dinhu"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 10)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kvuet"]
+radius = 0.01
+height = 0.05
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_u5sy4")
@@ -173,5 +185,13 @@ transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.0709
 
 [node name="ball-holder2" parent="." instance=ExtResource("10_vtaks")]
 transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, -4.233123, 1.4759588, -3.2897139)
+
+[node name="rain-particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 18.96576, 0)
+material_override = SubResource("StandardMaterial3D_kvpfn")
+amount = 2000
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_dinhu")
+draw_pass_1 = SubResource("CapsuleMesh_kvuet")
 
 [editable path="Hoop"]
