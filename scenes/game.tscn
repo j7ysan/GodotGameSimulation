@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://brgd3tu4e5e2s" path="res://assets/fence2.fbx" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dywdb15kcr46t" path="res://assets/fence-pole.fbx" id="13_trtic"]
 [ext_resource type="PackedScene" uid="uid://gb41cla1croa" path="res://scenes/animatedbasket.tscn" id="14_trtic"]
-[ext_resource type="Script" uid="uid://t324634j0ehs" path="res://scenes/animatedbasket.gd" id="15_ir15t"]
+[ext_resource type="Script" uid="uid://t324634j0ehs" path="res://scripts/animatedbasket.gd" id="15_ir15t"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
