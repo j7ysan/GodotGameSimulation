@@ -1,0 +1,331 @@
+[gd_scene load_steps=15 format=3 uid="uid://bo7s15gpecbit"]
+
+[ext_resource type="Script" uid="uid://de8m1ndi3mggd" path="res://scripts/options_menu.gd" id="1_lbr8e"]
+[ext_resource type="Texture2D" uid="uid://bst0a7ph752ad" path="res://assets/menu_background.png" id="2_t1lix"]
+[ext_resource type="Theme" uid="uid://xvo1sq6mt7ca" path="res://theme/modern_classic_blue.tres" id="3_ogda5"]
+[ext_resource type="Texture2D" uid="uid://bnbv3yjn0o6lx" path="res://theme/option_normal.png" id="4_6bffs"]
+[ext_resource type="Script" uid="uid://dt8uqbeotqna0" path="res://scripts/remapbutton.gd" id="5_6bffs"]
+[ext_resource type="Texture2D" uid="uid://b7ajp4gn5kirw" path="res://theme/tab_unselected.png" id="5_k61yy"]
+[ext_resource type="Texture2D" uid="uid://bybmrwfgq4r7w" path="res://theme/tab_focus.png" id="6_7txom"]
+[ext_resource type="Texture2D" uid="uid://d266o8bk32xqq" path="res://theme/tab_hover.png" id="6_binsn"]
+[ext_resource type="FontFile" uid="uid://cep0qece54m2c" path="res://assets/SuperMario256.ttf" id="8_7txom"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gmlt"]
+texture = ExtResource("2_t1lix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwtu1"]
+texture = ExtResource("4_6bffs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_binsn"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_k61yy")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i80p0"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_binsn")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2f1bn"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_7txom")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("3_ogda5")
+script = ExtResource("1_lbr8e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ogda5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4gmlt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_ogda5")
+theme_override_constants/separation = 48
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("3_ogda5")
+text = "Back"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_ogda5")
+theme_override_font_sizes/font_size = 40
+text = "Game Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("3_ogda5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vwtu1")
+text = "Start"
+
+[node name="Options_Tabs" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_ogda5")
+theme_override_constants/tab_separation = -4
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_binsn")
+theme_override_styles/tab_hovered = SubResource("StyleBoxTexture_i80p0")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_2f1bn")
+tab_alignment = 1
+current_tab = 3
+clip_tabs = false
+
+[node name="Sound" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 9
+metadata/_tab_index = 0
+
+[node name="Spacer" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Master Volume" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+layout_mode = 2
+text = "Master Volume:"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+tick_count = 9
+ticks_position = 3
+
+[node name="Spacer2" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Music Volume" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+tick_count = 9
+ticks_position = 3
+
+[node name="Spacer3" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Sound"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Video" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 1
+
+[node name="FullscreenCheck" type="CheckBox" parent="MarginContainer/VBoxContainer/Options_Tabs/Video"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_ogda5")
+text = "Fullscreen"
+
+[node name="Options_Container" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Video"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Resolution" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Video/Options_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Resolution: "
+
+[node name="ResolutionOption" type="OptionButton" parent="MarginContainer/VBoxContainer/Options_Tabs/Video/Options_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls"]
+layout_mode = 2
+columns = 2
+
+[node name="UpControl" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/UpControl"]
+layout_mode = 2
+text = " Up: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/UpControl"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Up"
+script = ExtResource("5_6bffs")
+action_name = "up"
+
+[node name="LeftControl" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/LeftControl"]
+layout_mode = 2
+text = " Left: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/LeftControl"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Left"
+script = ExtResource("5_6bffs")
+action_name = "left"
+
+[node name="DownControl" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/DownControl"]
+layout_mode = 2
+text = " Down: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/DownControl"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Down"
+script = ExtResource("5_6bffs")
+action_name = "down"
+
+[node name="RightControl" type="BoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/RightControl"]
+layout_mode = 2
+text = " Right: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/HBoxContainer/RightControl"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Right"
+script = ExtResource("5_6bffs")
+action_name = "right"
+
+[node name="BoostControl" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/BoostControl"]
+layout_mode = 2
+text = " Boost: "
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls/BoostControl"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Boost"
+script = ExtResource("5_6bffs")
+action_name = "boost"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options_Tabs/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Click on Control to Change"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="About" type="MarginContainer" parent="MarginContainer/VBoxContainer/Options_Tabs"]
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Options_Tabs/About"]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("3_ogda5")
+theme_override_constants/paragraph_separation = 16
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("8_7txom")
+theme_override_fonts/bold_font = ExtResource("8_7txom")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "
+[center][b]Street Hoops Legend[/b]
+
+Created by Group 1
+COMP360 Assignment 3 
+
+Ahmad, Bilal
+Antonio, Zoe
+Brar, Jas
+Duggal, Pragti
+Haug, Jason
+Skondric, Christian
+
+
+Version 1.0[/center]
+"
+fit_content = true
+scroll_active = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
