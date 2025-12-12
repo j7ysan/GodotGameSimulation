@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=25 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dbftdqdxhp52d" path="res://assets/HoopandBackboard2.fbx" id="4_xj7q3"]
 [ext_resource type="PackedScene" uid="uid://7taefg7sbokx" path="res://scenes/pause_menu.tscn" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://ddrhxc2f07vn8" path="res://assets/red_brick.jpg" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dke30o3ghavbf" path="res://scenes/hud.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b86fajr3uryct" path="res://assets/Baseboard-Connection.fbx" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bbe2ysmajb1d0" path="res://scenes/medal.tscn" id="8_gee14"]
@@ -37,18 +38,25 @@ material = SubResource("StandardMaterial3D_ipvt3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok4ew"]
 albedo_color = Color(0.62300676, 0.5428794, 0.3860812, 1)
+albedo_texture = ExtResource("5_kvpfn")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohnwu"]
 size = Vector3(2.044815, 0.13989258, 2.574524)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svkkd"]
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
+albedo_texture = ExtResource("5_kvpfn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkwdv"]
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
+albedo_texture = ExtResource("5_kvpfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinhu"]
+albedo_texture = ExtResource("5_kvpfn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lau0d"]
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
+albedo_texture = ExtResource("5_kvpfn")
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_u5sy4")
@@ -128,6 +136,7 @@ shape = SubResource("BoxShape3D_ohnwu")
 transform = Transform3D(6, 1.0490733e-06, -4.5856453e-14, 0, -2.6226832e-07, -6, -1.0490733e-06, 6, -2.6226832e-07, -0.008300304, 6.0317497, -6.261274)
 
 [node name="BoundaryWall4" type="MeshInstance3D" parent="Wall4"]
+material_override = SubResource("StandardMaterial3D_dinhu")
 mesh = SubResource("PlaneMesh_if7jb")
 surface_material_override/0 = SubResource("StandardMaterial3D_lau0d")
 
