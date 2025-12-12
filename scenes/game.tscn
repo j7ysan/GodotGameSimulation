@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=34 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
@@ -60,6 +60,12 @@ albedo_texture = SubResource("CompressedTexture2D_dinhu")
 albedo_color = Color(0.62352943, 0.5411765, 0.38431373, 1)
 albedo_texture = ExtResource("5_kvpfn")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ca42v"]
+size = Vector3(0.52349854, 7.5474243, 0.6357422)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trtic"]
+size = Vector3(13.383057, 7.440674, 1.6811523)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvpfn"]
 albedo_color = Color(0.7352687, 0.8838493, 0.95151335, 1)
 
@@ -70,6 +76,9 @@ emission_box_extents = Vector3(10, 10, 10)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kvuet"]
 radius = 0.01
 height = 0.05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ir15t"]
+size = Vector3(1.1118164, 4.5078125, 22.548828)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_u5sy4")
@@ -177,14 +186,32 @@ hud = NodePath("../../HUD")
 [node name="Baseboard-Connection" parent="." instance=ExtResource("8_0tnpc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.07678419, 4.89296, 3.516427)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Baseboard-Connection"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Baseboard-Connection/StaticBody3D"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 9.1552734e-05, -4.239791, 2.462613)
+shape = SubResource("BoxShape3D_ca42v")
+
 [node name="court-floor" parent="." instance=ExtResource("9_0tnpc")]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0.034334183, 0.019389153, -6.1360626)
 
 [node name="ball-holder" parent="." instance=ExtResource("10_vtaks")]
 transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, 4.1974635, 1.4759588, 1.3240664)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="ball-holder"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball-holder/StaticBody3D"]
+transform = Transform3D(1, 0, -1.3180568e-12, 0, 1, 0, 1.3180568e-12, 0, 1, 1.7230225, -2.3865962, -0.34057617)
+shape = SubResource("BoxShape3D_trtic")
+
 [node name="ball-holder2" parent="." instance=ExtResource("10_vtaks")]
 transform = Transform3D(-1.070929e-08, 0, -0.245, 0, 0.245, 0, 0.245, 0, -1.070929e-08, -4.2051563, 1.4759588, -2.6029477)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ball-holder2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball-holder2/StaticBody3D"]
+transform = Transform3D(1, 0, -1.3180568e-12, 0, 1, 0, 1.3180568e-12, 0, 1, 1.7230225, -2.3865962, -0.34057617)
+shape = SubResource("BoxShape3D_trtic")
 
 [node name="rain-particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 18.96576, 0)
@@ -197,14 +224,38 @@ draw_pass_1 = SubResource("CapsuleMesh_kvuet")
 [node name="fence2" parent="." instance=ExtResource("12_kvuet")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8754272, 0.14861901, 5.902391)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="fence2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055908203, 1.7539064, -10.774414)
+shape = SubResource("BoxShape3D_ir15t")
+
 [node name="fence3" parent="." instance=ExtResource("12_kvuet")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.826211, 0.14861901, 5.902391)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055908203, 1.7539064, -10.774414)
+shape = SubResource("BoxShape3D_ir15t")
 
 [node name="fence4" parent="." instance=ExtResource("12_kvuet")]
 transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, 6.2460575, 0.14861901, 5.624027)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="fence4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055908203, 1.7539064, -10.774414)
+shape = SubResource("BoxShape3D_ir15t")
+
 [node name="fence5" parent="." instance=ExtResource("12_kvuet")]
 transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, 6.2460575, 0.14861901, -6.333397)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055908203, 1.7539064, -10.774414)
+shape = SubResource("BoxShape3D_ir15t")
 
 [node name="fence-pole" parent="." instance=ExtResource("13_trtic")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 4.8946404, 0.15445137, -6.285896)
