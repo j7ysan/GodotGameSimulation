@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=22 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="Texture2D" uid="uid://bwp7qw06d8em8" path="res://assets/oak_veneer.jpg" id="1_ib0pb"]
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dke30o3ghavbf" path="res://scenes/hud.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b86fajr3uryct" path="res://assets/Baseboard-Connection.fbx" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bbe2ysmajb1d0" path="res://scenes/medal.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://bcbr7j3t1l8yj" path="res://assets/court-floor.fbx" id="9_0tnpc"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -103,7 +104,7 @@ transform = Transform3D(1, -4.2632564e-14, 8.4703295e-22, 4.2632564e-14, 1, 0, -
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(-2.6226832e-07, 6, -2.6226832e-07, 0, -2.6226832e-07, -6, -6, -2.6226832e-07, 1.1464113e-14, -4.9536963, 6.0317497, -0.086663246)
+transform = Transform3D(-2.6226832e-07, 6, -2.6226832e-07, 0, -2.6226832e-07, -6, -6, -2.6226832e-07, 1.1464113e-14, -4.733071, 6.0317497, -0.086663246)
 
 [node name="BoundaryWall2" type="MeshInstance3D" parent="Wall2"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -113,7 +114,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_svkkd")
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall3" type="StaticBody3D" parent="."]
-transform = Transform3D(7.154928e-08, -6, 2.6226832e-07, 0, -2.6226832e-07, -6, 6, 7.154928e-08, -3.1275184e-15, 4.98536, 6.0317497, -0.086663246)
+transform = Transform3D(7.154928e-08, -6, 2.6226832e-07, 0, -2.6226832e-07, -6, 6, 7.154928e-08, -3.1275184e-15, 4.8011217, 6.0317497, -0.086663246)
 
 [node name="BoundaryWall3" type="MeshInstance3D" parent="Wall3"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -153,5 +154,8 @@ hud = NodePath("../../HUD")
 
 [node name="Baseboard-Connection" parent="." instance=ExtResource("8_0tnpc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.07678419, 4.89296, 3.516427)
+
+[node name="court-floor" parent="." instance=ExtResource("9_0tnpc")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0.034334183, 0.019389153, -6.1360626)
 
 [editable path="Hoop"]
