@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3woyuvboomxk"]
+[gd_scene load_steps=4 format=3 uid="uid://d3woyuvboomxk"]
 
 [ext_resource type="Script" uid="uid://dq5gpt3n72gf2" path="res://scripts/player_ball.gd" id="1_60p4i"]
 [ext_resource type="PackedScene" uid="uid://wglx2wu1l13x" path="res://assets/BasketballBall.fbx" id="2_wp7ge"]
-[ext_resource type="Texture2D" uid="uid://dgtr6malol1qq" path="res://assets/icon.svg" id="3_5e702"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fsq41"]
 radius = 0.42
@@ -15,9 +14,3 @@ shape = SubResource("SphereShape3D_fsq41")
 
 [node name="BasketballBall" parent="." instance=ExtResource("2_wp7ge")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
-
-[node name="Shadow" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.01, 0)
-top_level = true
-modulate = Color(0, 0, 0, 0.6784314)
-texture = ExtResource("3_5e702")

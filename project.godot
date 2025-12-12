@@ -23,6 +23,7 @@ buses/default_bus_layout="res://sound/default_bus_layout.tres"
 [autoload]
 
 AudioManager="*res://scenes/audio_manager.tscn"
+Global="*res://global.gd"
 
 [display]
 
