@@ -124,7 +124,7 @@ transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 0, -6.981947, 0)
 shape = SubResource("BoxShape3D_a202f")
 
 [node name="Wall1" type="StaticBody3D" parent="."]
-transform = Transform3D(-6, 9.0597484e-07, -3.9601416e-14, 0, -2.6226832e-07, -6, -9.0597484e-07, -6, 2.6226832e-07, 0, 6.0317497, 5.847154)
+transform = Transform3D(-7, 1.0569706e-06, -4.6201653e-14, 0, -3.059797e-07, -7, -1.0569706e-06, -7, 3.059797e-07, 0, 6.0317497, 5.847154)
 
 [node name="BoundaryWall1" type="MeshInstance3D" parent="Wall1"]
 mesh = SubResource("PlaneMesh_if7jb")
@@ -155,7 +155,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vkwdv")
 shape = SubResource("BoxShape3D_ohnwu")
 
 [node name="Wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(6, 1.0490733e-06, -4.5856453e-14, 0, -2.6226832e-07, -6, -1.0490733e-06, 6, -2.6226832e-07, -0.008300304, 6.0317497, -6.5222573)
+transform = Transform3D(7, 1.2239187e-06, -5.3499187e-14, 0, -3.059797e-07, -7, -1.2239187e-06, 7, -3.059797e-07, -0.008300304, 6.0317497, -6.5222573)
 
 [node name="BoundaryWall4" type="MeshInstance3D" parent="Wall4"]
 material_override = SubResource("StandardMaterial3D_kvuet")
