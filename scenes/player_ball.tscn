@@ -19,5 +19,6 @@ transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
 [node name="Shadow" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.01, 0)
 top_level = true
+visible = false
 modulate = Color(0, 0, 0, 0.6784314)
 texture = ExtResource("3_5e702")
