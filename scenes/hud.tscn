@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dke30o3ghavbf"]
+
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://c408ts8pfwhci" path="res://assets/medal.png" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://cep0qece54m2c" path="res://assets/SuperMario256.ttf" id="2_5ysmq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toqtt"]
+bg_color = Color(0.16862746, 0.62352943, 0.84313726, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5ysmq")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 33.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_toqtt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 46.0
+offset_top = 35.0
+offset_right = 75.0
+offset_bottom = 64.0
+texture = ExtResource("1_oo0fn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 44.0
+offset_right = 119.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_5ysmq")
+theme_override_font_sizes/font_size = 20
+text = "x"
+
+[node name="MedalsLabel" type="Label" parent="."]
+offset_left = 111.0
+offset_top = 44.0
+offset_right = 151.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_5ysmq")
+theme_override_font_sizes/font_size = 20
+text = "x"
