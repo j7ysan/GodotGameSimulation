@@ -7,6 +7,7 @@ const GRAVITY = 30.0       # Higher gravity feels snappier for sports balls
 const FLOOR_BOUNCE = 0.75   # Retain 75% height on floor hits (Automatic Bounce)
 const WALL_BOUNCE = 0.8     # Retain 80% speed on wall hits
 const BALL_RADIUS = 0.42
+const ANIM_SCALE = 0.75
 
 @onready var ball_mesh = $BasketballBall
 
@@ -44,6 +45,7 @@ func _physics_process(delta):
 			velocity.y = -vel_before_collision.y * FLOOR_BOUNCE
 		
 	handle_spin(delta)
+	animate()
 	
 func handle_movement(delta):
 	var vec: Vector2 = Input.get_vector("right", "left", "down", "up")
@@ -90,3 +92,9 @@ func handle_spin(delta):
 		
 		# Apply the rotation globally to the mesh node
 		ball_mesh.global_rotate(rotation_axis, rotate_angle)
+
+func animate():
+	$BasketballBall/Cube.scale.x = 100 - (abs(velocity.y) * ANIM_SCALE)
+	$BasketballBall/Cube.scale.z = 100 + (abs(velocity.y) * ANIM_SCALE)
+	$BasketballBall/Cube.scale.x += abs(Vector2(velocity.x, velocity.z).length()) * ANIM_SCALE
+	pass
