@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bjf0jahjqfku0"]
+[gd_scene load_steps=35 format=3 uid="uid://bjf0jahjqfku0"]
 
 [ext_resource type="PackedScene" uid="uid://d3woyuvboomxk" path="res://scenes/player_ball.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://4leb0ejj2buu" path="res://scripts/game.gd" id="1_u5sy4"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://lr0lm7gimcsv" path="res://assets/ball-holder.fbx" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://brgd3tu4e5e2s" path="res://assets/fence2.fbx" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dywdb15kcr46t" path="res://assets/fence-pole.fbx" id="13_trtic"]
-[ext_resource type="PackedScene" uid="uid://bdnqpgmgxj2tb" path="res://assets/basket.fbx" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://gb41cla1croa" path="res://scenes/animatedbasket.tscn" id="14_trtic"]
+[ext_resource type="Script" uid="uid://t324634j0ehs" path="res://scenes/animatedbasket.gd" id="15_ir15t"]
 
 [sub_resource type="Environment" id="Environment_7dtuv"]
 background_mode = 1
@@ -305,7 +306,8 @@ transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.154451
 [node name="fence-pole10" parent="." instance=ExtResource("13_trtic")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -4.8007565, 0.15445137, 5.6381044)
 
-[node name="Basket" parent="." instance=ExtResource("14_trtic")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.075963855, 4.8774314, 3.415631)
+[node name="AnimatedBasket" parent="." instance=ExtResource("14_trtic")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.07825905, 4.8767743, 3.4092166)
+script = ExtResource("15_ir15t")
 
 [editable path="Hoop"]

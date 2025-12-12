@@ -36,7 +36,7 @@ Created to test animation in relation to game creation for the third assignment 
 		- ball-holder: 
 			To add more life to the environment we placed standard holders which have more basketballs in them. To give more purpose to your endless supply, modeled in Blender by Jasan.
 		- Basket:
-			Added a basket to the underside of the rim, which was previousy left bare, to complete the hoop setup, modeled in Blender by Jasan.
+			Added a basket to the underside of the rim, which was previousy left bare, to complete the hoop setup, modeled and rigged in Blender by Jasan.
 		- fence/fence-post:
 			To add more to the boundary of the world, completing our custom 'landscape', and the aesthetic of the 'outside court' that we spoke of earlier in our README, modeled in Blender by Jasan.
 		- floor/wall textures: 
