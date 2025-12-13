@@ -1,5 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://gb41cla1croa"]
+[gd_scene load_steps=3 format=3 uid="uid://gb41cla1croa"]
 
 [ext_resource type="PackedScene" uid="uid://cplh8afg3f558" path="res://assets/baskettest.glb" id="1_ctkvd"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctkvd"]
+size = Vector3(0.6894531, 0.62109375, 0.54681396)
+
 [node name="baskettest" instance=ExtResource("1_ctkvd")]
+
+[node name="Skeleton3D" parent="Bones" index="0"]
+bones/0/position = Vector3(0, -0.34577584, -0.06642146)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/3/scale = Vector3(1, 1.0000001, 1)
+bones/5/position = Vector3(-2.9079954e-11, 0.34850287, -3.680689)
+bones/6/scale = Vector3(1, 1.0000001, 1)
+bones/7/scale = Vector3(1, 1, 0.9999999)
+bones/8/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(-1.8902088, 0.006607487, -1.9008533)
+bones/10/scale = Vector3(0.99999994, 0.9999999, 1)
+bones/11/scale = Vector3(0.99999994, 1.0000001, 1)
+bones/12/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
+bones/13/scale = Vector3(1, 1, 1)
+bones/15/position = Vector3(1.8346144, 0.0066074007, -1.9008533)
+bones/15/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/16/scale = Vector3(0.99999994, 1, 1)
+bones/17/scale = Vector3(0.99999994, 1, 1)
+bones/18/scale = Vector3(1.0000001, 0.99999994, 1)
+bones/20/position = Vector3(1.4361881, -0.22062384, -0.7179359)
+bones/20/scale = Vector3(1, 1, 0.99999994)
+bones/21/scale = Vector3(1, 1, 1.0000001)
+bones/22/scale = Vector3(0.99999994, 0.9999999, 1)
+bones/23/scale = Vector3(0.99999994, 0.9999999, 1.0000001)
+bones/25/position = Vector3(1.2786705, 0.24782209, -3.1565657)
+bones/25/scale = Vector3(0.99999994, 1, 1)
+bones/26/scale = Vector3(1, 1.0000001, 0.99999994)
+bones/27/scale = Vector3(1, 0.9999999, 1)
+bones/28/scale = Vector3(1, 0.99999994, 0.9999999)
+bones/30/position = Vector3(-1.2223125, 0.25010738, -3.1684625)
+bones/30/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/31/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/32/scale = Vector3(0.99999994, 1, 1.0000001)
+bones/33/scale = Vector3(1.0000001, 1, 0.9999999)
+bones/35/position = Vector3(-1.3993732, -0.2259359, -0.6649088)
+bones/35/scale = Vector3(1, 1, 1)
+bones/36/scale = Vector3(0.9999999, 1.0000001, 1.0000001)
+bones/37/scale = Vector3(1, 0.99999994, 1)
+bones/38/scale = Vector3(1, 0.99999994, 0.99999994)
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012089312, -1.2459106, -1.0962393)
+shape = SubResource("BoxShape3D_ctkvd")
