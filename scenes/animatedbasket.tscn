@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://gb41cla1croa"]
+[gd_scene load_steps=5 format=3 uid="uid://gb41cla1croa"]
 
 [ext_resource type="PackedScene" uid="uid://cplh8afg3f558" path="res://assets/baskettest.glb" id="1_ctkvd"]
+[ext_resource type="Script" uid="uid://t324634j0ehs" path="res://scripts/animatedbasket.gd" id="2_qy8vr"]
+[ext_resource type="AudioStream" uid="uid://be62tq64q2url" path="res://sound/basketball_swish.mp3" id="3_v1x8a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ctkvd"]
 size = Vector3(0.6894531, 0.62109375, 0.54681396)
 
 [node name="baskettest" instance=ExtResource("1_ctkvd")]
+script = ExtResource("2_qy8vr")
 
 [node name="Skeleton3D" parent="Bones" index="0"]
 bones/0/position = Vector3(0, -0.34577584, -0.06642146)
@@ -52,3 +55,10 @@ bones/38/scale = Vector3(1, 0.99999994, 0.99999994)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012089312, -1.2459106, -1.0962393)
 shape = SubResource("BoxShape3D_ctkvd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("3_v1x8a")
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
