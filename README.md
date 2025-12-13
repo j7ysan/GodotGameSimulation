@@ -55,7 +55,7 @@ Created to test animation in relation to game creation for the third assignment 
 		The 3d animation we incorporated is linked to the basket where upon contact with the ball (body entered) the ball undergoes a custom animation
 		made in Blender while also playing a sound to accompany it. These animations could also be made and edited in Godot as well, Logan's video covers
 		how to implement this pretty well and is what was followed - the models and rig however itself was completely custom for our little minigame.
-	- Coin Collection - Zoe:
-		The coins give the player more to do beyond the standard, there is a tracker on the top left for the player to see how many they have (/3),
-		and the coins are perfectly positioned to teach them the ball mechanics via the bounce.
+	- Medal Collection - Zoe:
+		The medals give the player more to do beyond the standard, there is a tracker on the top left for the player to see how many they have (/12),
+		and the medals are perfectly positioned to teach them the ball mechanics via the bounce.
 >
