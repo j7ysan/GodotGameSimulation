@@ -25,7 +25,7 @@ Created to test animation in relation to game creation for the third assignment 
 		The lighting helps to add a lot of life to our game, we used rain particles in our world environment to give the feel of more of an outside rainy
 		day, and by using more dim lighting coupled with the Godot fog, it really gave the world a lot more appeal than previously before.
 
-## Models and Items and More:
+## Models, Items and More:
 	The models, items, and sounds for them featured in the game so far are:
 		(https://polyhaven.com/) used for textures/assets:
 		(https://elevenlabs.io/) used for texture/assets sounds:
